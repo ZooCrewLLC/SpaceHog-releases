@@ -3,6 +3,17 @@
 All notable changes to SpaceHog are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [1.0.7] - 2026-06-13
+
+### Fixed
+- macOS: disk scan no longer returns empty on every attempt — inode pre-seeding caused the root directory to self-deduplicate before `scan_dir` could traverse it (regression introduced in 1.0.6)
+- macOS: scanning `/` no longer skips all user data on hardware where the APFS System and Data volumes report different device IDs
+- macOS: mtime cache version bumped to invalidate stale empty-directory entries written by the broken 1.0.6 scanner
+- macOS: `.app` bundle now displays the SpaceHog icon in Finder and the Dock
+
+### Changed
+- macOS Universal builds restored
+
 ## [1.0.6] - 2026-06-04
 
 First public release.
